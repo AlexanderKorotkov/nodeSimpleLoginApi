@@ -15,7 +15,7 @@ require('promise.prototype.finally');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort('80');
+var port = normalizePort('3000');
 app.set('port', port);
 
 /**
