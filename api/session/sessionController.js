@@ -35,15 +35,18 @@ function signIn(req, res) {
         services.errorService.handleError(res, "Invalid user input", "Authentication failed. User not found or wrong password.", 400);
       } else {
 
-        // if user is found and password is right
+        // if user is found, password and secret key is right
         // create a token
-        var token = services.token.signToken(user);
-
-        // return the information including token as JSON
-        res.send({
-          message: 'Enjoy your token!',
-          token: token
-        });
+        var token = services.token.signToken(user, req.body.client_secret);
+        if(!token){
+          services.errorService.handleError(res, "Invalid secret key", "Invalid secret key", 400);
+        }else{
+          // return the information including token as JSON
+          res.send({
+            message: 'Enjoy your token!',
+            token: token
+          });
+        }
       }
     }
   });

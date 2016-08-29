@@ -3,6 +3,7 @@
 
 node_modules/
 .idea/
+npm-debug.log/
 /api/conf
 #/api/conf.js
 
