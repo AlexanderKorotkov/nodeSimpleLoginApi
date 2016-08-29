@@ -51,7 +51,7 @@ function signIn(req, res) {
 router.post('/signIn', signIn);
 
 
-function registration(req, res) {
+function signUp(req, res) {
 
   if(!req.body.username || !req.body.email || !req.body.password){
     services.errorService.handleError(res, "Empty blank", "Please fill all fields", 400);
@@ -83,7 +83,7 @@ function registration(req, res) {
   });
 
 }
-router.post('/registration', registration);
+router.post('/signUp', signUp);
 
 module.exports = router;
 
