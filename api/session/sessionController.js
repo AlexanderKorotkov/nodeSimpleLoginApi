@@ -42,8 +42,8 @@ function signIn(req, res) {
         }else{
           // return the information including token as JSON
           res.send({
-            message: 'Enjoy your token!',
-            token: token
+            token: token,
+            user: {username: user.username, email: user.email, _id: user._id }
           });
         }
       }
