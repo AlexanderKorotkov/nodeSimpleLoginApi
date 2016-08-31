@@ -8,7 +8,6 @@ var User = require('./UserModel');
 var services = require('../services/index');
 var express = require('express');
 var router = express.Router();
-var _ = require('lodash');
 var validator = require('validator');
 
 function signIn(req, res) {
@@ -74,11 +73,8 @@ function signUp(req, res) {
     } else {
       userData.save(function(err) {
         if (err) throw err;
-        var token = services.token.signToken(userData);
-        // return the information including token as JSON
         res.send({
-          message: 'Enjoy your token!',
-          token: token
+          message: 'Account was created!'
         });
       });
     }
